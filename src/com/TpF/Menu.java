@@ -25,6 +25,7 @@ public class Menu {
                 imprimirMenuClientes();
                 break;
             case 2:
+                ///TIENE QUE PEDIR CONTRASEÑA PARA LA PRIMERA VEZ Y DESPUES PEDIRLA PARA ACCEDER
                 break;
             case 0:
                 System.out.println("Muchas gracias por usar el software!");
@@ -46,6 +47,60 @@ public class Menu {
         int menu = input.nextInt();
         switch(menu){
             case 1:
+                imprimirMenuClientesLogin();
+                break;
+            case 2:
+                break;
+            case 0:
+                imprimirMenuPrincipal();
+                break;
+
+        }
+    }
+    public void imprimirMenuClientesLogin(){
+        Scanner input = new Scanner(System.in);
+        limpiarConsola();
+        System.out.println("\n--------------------------------");
+        System.out.println("\t Bienvenido, USUARIO\t");
+        System.out.println("\n Presione el numero de acceso e ingrese a la opcion con Enter\n");
+        System.out.println("1) Compra de juegos");
+        System.out.println("2) Ver catalogo de juegos");
+        System.out.println("3) Historial de compras");
+        System.out.println("4) Recomendacion de la casa");
+        System.out.println("\n0) Volver al menu principal");
+        int menu = input.nextInt();
+        switch(menu){
+            case 1:
+                ///En compra que busque un juego por nombre y permita comprarlo
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 0:
+                imprimirMenuPrincipal();
+                break;
+
+        }
+    }
+
+    ///STAFF
+    public void imprimirMenuStaff(){
+        Scanner input = new Scanner(System.in);
+        limpiarConsola();
+        System.out.println("\n--------------------------------");
+        System.out.println("\t Menu de Staff\t");
+        System.out.println("\n Presione el numero de acceso e ingrese a la opcion con Enter\n");
+        System.out.println("1) Registrar nuevo videojuego");
+        System.out.println("2) Ver lista de Developers/Publishers");
+        System.out.println("3) Ver lista de usuarios");
+        System.out.println("4) Ver historial de ventas");
+        System.out.println("\n0) Volver");
+        int menu = input.nextInt();
+        switch(menu){
+            case 1:
 
                 break;
             case 2:
@@ -55,8 +110,6 @@ public class Menu {
                 break;
 
         }
-
-
     }
 
 
