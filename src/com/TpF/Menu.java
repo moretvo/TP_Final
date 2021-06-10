@@ -33,7 +33,6 @@ public class Menu {
 
         }
 
-
     }
     public void imprimirMenuClientes(){
         Scanner input = new Scanner(System.in);
