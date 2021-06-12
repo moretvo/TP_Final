@@ -1,4 +1,6 @@
 package com.TpF;
+import com.TpF.Store.Usuarios;
+
 import java.io.IOException;
 import java.util.Scanner;
 import java.io.*;
@@ -8,6 +10,8 @@ import static java.lang.System.exit;
 public class Menu {
 
     public Menu(){};
+
+    Usuarios usuario = new Usuarios();
 
 
     public void imprimirMenuPrincipal(){
@@ -47,9 +51,12 @@ public class Menu {
         int menu = input.nextInt();
         switch(menu){
             case 1:
+
                 imprimirMenuClientesLogin();
                 break;
             case 2:
+                usuario.crearUsuario();
+                imprimirMenuPrincipal();
                 break;
             case 0:
                 imprimirMenuPrincipal();

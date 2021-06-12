@@ -15,6 +15,14 @@ public class Persona {
         this.DNI = DNI;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
     @Override
     public String toString()
     {

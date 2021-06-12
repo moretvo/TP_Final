@@ -1,9 +1,13 @@
 package com.TpF.Personas;
 
-public class Cliente extends Persona {
+import java.util.Scanner;
+
+public class Cliente extends Persona{
 
     private static int id=0;
     private int propioId;
+    protected String usuario;
+    protected String password;
 
     public Cliente(){};
 
@@ -12,9 +16,15 @@ public class Cliente extends Persona {
         this.propioId = crearNuevoId();
     }
 
+
     public int crearNuevoId(){
         return ++id;
     }
+
+    public String getUsuario() { return usuario; }
+
+    public void setUsuario(String usuario) { this.usuario = usuario;}
+    public void setPassword(String password) { this.password = password;}
 
     @Override
     public String toString()
@@ -23,4 +33,5 @@ public class Cliente extends Persona {
                 "\nID: " + propioId + super.toString();
 
     }
+
 }

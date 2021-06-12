@@ -1,0 +1,18 @@
+[
+  {
+    "propioId": 1,
+    "usuario": "moretvo",
+    "password": "chicago",
+    "nombre": "Rodrigo",
+    "apellido": "Moreno",
+    "DNI": "40009421"
+  },
+  {
+    "propioId": 2,
+    "usuario": "elvillano",
+    "password": "elmasmalote",
+    "nombre": "Malvado",
+    "apellido": "Genio",
+    "DNI": "40009421"
+  }
+]
