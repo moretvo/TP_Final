@@ -134,17 +134,18 @@ public class Menu {
         System.out.println("\t Menu de Staff\t");
         System.out.println("\n Presione el numero de acceso e ingrese a la opcion con Enter\n");
         System.out.println("1) Registrar nuevo videojuego");
-        System.out.println("2) Ver lista de Developers/Publishers");
+        System.out.println("2) Ver lista de juegos");
         System.out.println("3) Ver lista de usuarios");
         System.out.println("4) Ver historial de ventas");
         System.out.println("\n0) Volver");
         int menu = input.nextInt();
         switch(menu){
             case 1:
-                compraJueguito.cargarVideojuegoNuevo();
+                admin.cargarVideojuegoNuevo();
                 imprimirMenuStaff();
                 break;
             case 2:
+                admin.verListaDeJuegos();
                 break;
             case 0:
                 imprimirMenuPrincipal();

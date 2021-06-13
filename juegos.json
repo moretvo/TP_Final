@@ -1,0 +1,32 @@
+[
+  {
+    "titulo": "Marvel Spiderman",
+    "desarrollador": "Insomniac Games",
+    "consola": "PLAYSTATION_4",
+    "fechaDeLanzamiento": "7-9-2018",
+    "genero": "ACCION",
+    "rating": "T",
+    "precio": 20,
+    "stock": 30
+  },
+  {
+    "titulo": "Tetris Effect",
+    "desarrollador": "Resonair",
+    "consola": "PLAYSTATION_4",
+    "fechaDeLanzamiento": "9-11-2018",
+    "genero": "PUZZLE",
+    "rating": "E",
+    "precio": 30,
+    "stock": 10
+  },
+  {
+    "titulo": "Catherine: Full Body",
+    "desarrollador": "Atlus",
+    "consola": "PLAYSTATION_4",
+    "fechaDeLanzamiento": "14-2-2019",
+    "genero": "PUZZLE",
+    "rating": "M",
+    "precio": 30,
+    "stock": 5
+  }
+]

@@ -16,17 +16,21 @@ public class Juego {
     private LocalDate releaseDate;
     private Genero genero;
     private ESRB rating;
+    private int precio;
+    private int stock;
 
     public Juego(){};
 
-    public Juego(String titulo, String desarrollador, String fechaDeLanzamiento, Genero genero, ESRB rating, Consola consola)
+    public Juego(String titulo, String desarrollador, String fechaDeLanzamiento, Genero genero, ESRB rating, Consola consola, int precio, int stock)
     {
         this.titulo = titulo;
         this.desarrollador = desarrollador;
-        releaseDate = LocalDate.parse(fechaDeLanzamiento);
+        this.releaseDate = LocalDate.parse(fechaDeLanzamiento);
         this.genero = genero;
         this.rating = rating;
         this.consola= consola;
+        this.precio = precio;
+        this.stock = stock;
     }
 
 
@@ -66,13 +70,23 @@ public class Juego {
         this.rating = rating;
     }
 
+    public void setPrecio(int precio) { this.precio = precio; }
+
+    public void setStock(int stock) { this.stock = stock; }
+
+    public String getFechaDeLanzamiento() {
+        return fechaDeLanzamiento;
+    }
+
     @Override
     public String toString()
     {
         return "\nTitulo: " + titulo +
                 "\nDesarrollado por " + desarrollador +
                 "\nConsola: " + consola +
-                "\nFecha de Lanzamiento: " + releaseDate +
+                "\nPrecio: $" + precio +
+                "\nStock disponible: " + stock +
+                "\nFecha de Lanzamiento: " + getFechaDeLanzamiento() +
                 "\nGenero: " + genero +
                 "\nRating: " + rating;
     }
