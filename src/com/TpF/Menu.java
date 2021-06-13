@@ -41,6 +41,7 @@ public class Menu {
     }
     public void imprimirMenuClientes(){
         Scanner input = new Scanner(System.in);
+        int acceso;
         limpiarConsola();
         System.out.println("\n--------------------------------");
         System.out.println("\t CLIENTES\t");
@@ -51,8 +52,16 @@ public class Menu {
         int menu = input.nextInt();
         switch(menu){
             case 1:
-
-                imprimirMenuClientesLogin();
+                acceso=usuario.loginUsuarioCliente();
+                if(acceso==1)
+                {
+                    imprimirMenuClientesLogin();
+                }
+                else
+                {
+                    System.out.println("Uno de los datos ingresados es erroneo. Volver a intentar\n");
+                    imprimirMenuClientes();
+                }
                 break;
             case 2:
                 usuario.crearUsuario();
