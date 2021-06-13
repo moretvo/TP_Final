@@ -1,5 +1,6 @@
 package com.TpF;
 import com.TpF.Personas.Staff;
+import com.TpF.Store.CompraVideojuegos;
 import com.TpF.Store.Usuarios;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ public class Menu {
 
     Usuarios usuario = new Usuarios();
     Staff admin = new Staff();
+    CompraVideojuegos compraJueguito = new CompraVideojuegos();
     boolean entradaAdmin;
 
 
@@ -139,7 +141,8 @@ public class Menu {
         int menu = input.nextInt();
         switch(menu){
             case 1:
-
+                compraJueguito.cargarVideojuegoNuevo();
+                imprimirMenuStaff();
                 break;
             case 2:
                 break;
