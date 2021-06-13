@@ -1,18 +1,23 @@
 [
   {
-    "propioId": 1,
     "usuario": "moretvo",
-    "password": "chicago",
+    "password": "contraseña",
     "nombre": "Rodrigo",
     "apellido": "Moreno",
     "DNI": "40009421"
   },
   {
-    "propioId": 2,
-    "usuario": "elvillano",
-    "password": "elmasmalote",
-    "nombre": "Malvado",
-    "apellido": "Genio",
-    "DNI": "40009421"
+    "usuario": "usuario",
+    "password": "123",
+    "nombre": "Soy",
+    "apellido": "Real",
+    "DNI": "12345688"
+  },
+  {
+    "usuario": "elmasperron",
+    "password": "12345",
+    "nombre": "Naruto",
+    "apellido": "Uzumaki",
+    "DNI": "12345677"
   }
 ]

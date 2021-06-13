@@ -14,7 +14,37 @@ import java.util.Scanner;
 public class Usuarios implements ServiciosCliente {
     private List<Cliente> clientes = new ArrayList<>();
 
-    public Usuarios(){};
+    public Usuarios(){
+        cargarUsuarios();
+    };
+
+    @Override
+    public void cargarUsuarios(){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        BufferedReader reader = null;
+        int i=0;
+        try {
+            reader = new BufferedReader(new FileReader(new File ("clientes.json")));
+            clientes = gson.fromJson(reader,(new TypeToken<List<Cliente>>() {}.getType()));
+        }
+
+        catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        catch (NullPointerException e) {
+            e.printStackTrace();
+
+        }finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Override
     public void crearUsuario() {
@@ -52,7 +82,6 @@ public class Usuarios implements ServiciosCliente {
                 Cliente cliente = new Cliente(nombre, apellido, DNI);
                 cliente.setUsuario(usuario);
                 cliente.setPassword(password);
-
                 clientes.add(cliente);
 
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();

@@ -1,4 +1,5 @@
 package com.TpF;
+import com.TpF.Personas.Staff;
 import com.TpF.Store.Usuarios;
 
 import java.io.IOException;
@@ -12,6 +13,9 @@ public class Menu {
     public Menu(){};
 
     Usuarios usuario = new Usuarios();
+    Staff admin = new Staff();
+    boolean entradaAdmin;
+
 
 
     public void imprimirMenuPrincipal(){
@@ -30,6 +34,24 @@ public class Menu {
                 break;
             case 2:
                 ///TIENE QUE PEDIR CONTRASEÑA PARA LA PRIMERA VEZ Y DESPUES PEDIRLA PARA ACCEDER
+                admin.init();
+                if(admin.isPrimeraVez()==true)
+                {
+                    admin.accesoPrimeraVez();
+                }
+                else
+                {
+                    entradaAdmin=admin.loginStaff();
+                    if(entradaAdmin==true)
+                    {
+                        imprimirMenuStaff();
+                    }
+                    else
+                    {
+                        System.out.println("Acceso denegado. Volver a intentar\n");
+                    }
+                }
+                imprimirMenuPrincipal();
                 break;
             case 0:
                 System.out.println("Muchas gracias por usar el software!");

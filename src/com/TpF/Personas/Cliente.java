@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Cliente extends Persona{
 
-    private static int id=0;
-    private int propioId;
     protected String usuario;
     protected String password;
 
@@ -13,12 +11,6 @@ public class Cliente extends Persona{
 
     public Cliente(String nombre, String apellido, String DNI){
         super(nombre, apellido, DNI);
-        this.propioId = crearNuevoId();
-    }
-
-
-    public int crearNuevoId(){
-        return ++id;
     }
 
     public String getUsuario() { return usuario; }
@@ -31,7 +23,7 @@ public class Cliente extends Persona{
     public String toString()
     {
         return "Cliente: " +
-                "\nID: " + propioId + super.toString();
+                "\nUsuario " + usuario + super.toString();
 
     }
 
