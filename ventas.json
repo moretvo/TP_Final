@@ -1,5 +1,15 @@
 [
   {
+    "jueguitos": [],
+    "ventas": [],
+    "nombreDelJuego": "Tetris Effect",
+    "consola": "PLAYSTATION_4",
+    "precio": 1500,
+    "nombredeUsuario": "panlactalx100pre",
+    "nombreApellido": "Pan Lactal"
+  },
+  {
+    "jueguitos": [],
     "ventas": [],
     "nombreDelJuego": "Super Mario 64",
     "consola": "NINTENDO_64",
@@ -8,11 +18,12 @@
     "nombreApellido": "Rodrigo Moreno"
   },
   {
+    "jueguitos": [],
     "ventas": [],
-    "nombreDelJuego": "Tetris Effect",
-    "consola": "PLAYSTATION_4",
-    "precio": 1500,
-    "nombredeUsuario": "moretvo",
-    "nombreApellido": "Rodrigo Moreno"
+    "nombreDelJuego": "Dragon Ball Z: Budokai 3",
+    "consola": "PLAYSTATION_2",
+    "precio": 3000,
+    "nombredeUsuario": "jamonyqueso",
+    "nombreApellido": "Jamon Queso"
   }
 ]

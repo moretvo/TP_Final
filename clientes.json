@@ -19,5 +19,12 @@
     "nombre": "Pan",
     "apellido": "Lactal",
     "DNI": "45678123"
+  },
+  {
+    "usuario": "cocacola",
+    "password": "123",
+    "nombre": "COca",
+    "apellido": "Cola",
+    "DNI": "45678123"
   }
 ]

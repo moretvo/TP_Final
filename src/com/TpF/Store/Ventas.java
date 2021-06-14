@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Ventas {
+
+
+    private List<Juego> jueguitos = new ArrayList<>();
     private List<Ventas> ventas = new ArrayList<>();
     private Juego juego;
     private Cliente cliente;
@@ -43,7 +46,7 @@ public class Ventas {
     public int getPrecio() { return precio; }
 
     public void ventaDeJuego(Cliente c){
-        List<Juego> jueguitos = new ArrayList<>();
+
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader reader = null;
 
@@ -91,22 +94,24 @@ public class Ventas {
         }
         else
         {
+
             System.out.println(juegoBuscado.toString());
             System.out.println("El juego tiene un precio de $" + juegoBuscado.getPrecio() + " pesos.");
             System.out.println("¿Comprar?");
             System.out.println("1) Si");
             System.out.println("2) No");
             input.reset();
+
             int numero =  input.nextInt();
             switch(numero) {
                 case 1:
 
-                    Ventas v = new Ventas(juegoBuscado, c);
+                    Ventas aux = new Ventas(juegoBuscado, c);
+                    ventas = cargarVentas();
+                    ventas.add(aux);
 
-                    ventas.add(v);
-
-                    Archivos<Ventas> ventaFile = new Archivos<>();
-                    ventaFile.guardarArchivoSingular("ventas.json", ventas);
+                    Archivos<Ventas> venta = new Archivos<>();
+                    venta.guardarArchivoSingular("ventas.json", ventas);
                     break;
                     case 2:
                         break;
@@ -114,6 +119,35 @@ public class Ventas {
             }
 
         }
+
+
+
+    public List<Ventas> cargarVentas(){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(new File ("ventas.json")));
+            ventas = gson.fromJson(reader,(new TypeToken<List<Ventas>>() {}.getType()));
+        }
+
+        catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        catch (NullPointerException e) {
+            e.printStackTrace();
+
+        }finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return ventas;
+    }
     @Override
     public String toString(){
         return "Juego: " + nombreDelJuego +

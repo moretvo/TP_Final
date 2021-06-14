@@ -101,11 +101,42 @@ public class Menu {
 
         }
     }
-    public void imprimirMenuClientesLogin(Cliente c){
+    public void imprimirMenuClientesLogin(Cliente cliente){
         Scanner input = new Scanner(System.in);
         limpiarConsola();
         System.out.println("\n--------------------------------");
-        System.out.println("\t Bienvenido, " + c.getNombre());
+        System.out.println("\t Bienvenido, " + cliente.getNombre());
+        System.out.println("\n Presione el numero de acceso e ingrese a la opcion con Enter\n");
+        System.out.println("1) Compra de juegos");
+        System.out.println("2) Ver catalogo de juegos");
+        System.out.println("3) Historial de compras");
+        System.out.println("4) Recomendacion de la casa");
+        System.out.println("\n0) Volver al menu principal");
+        int menu = input.nextInt();
+        switch(menu){
+            case 1:
+                venta.ventaDeJuego(cliente);
+                imprimirMenuClientes();
+                break;
+            case 2:
+                imprimirMenuClientesCatalogo(cliente);
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 0:
+                imprimirMenuPrincipal();
+                break;
+
+        }
+    }
+
+    public void imprimirMenuClientesCatalogo(Cliente cliente){
+        Scanner input = new Scanner(System.in);
+        limpiarConsola();
+        System.out.println("\n--------------------------------");
+        System.out.println("\t Bienvenido, " + cliente.getNombre());
         System.out.println("\n Presione el numero de acceso e ingrese a la opcion con Enter\n");
         System.out.println("1) Compra de juegos");
         System.out.println("2) Ver catalogo de juegos");

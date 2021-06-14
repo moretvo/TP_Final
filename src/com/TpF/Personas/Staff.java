@@ -2,7 +2,7 @@ package com.TpF.Personas;
 
 import com.TpF.Personas.ServiciosCliente;
 import com.TpF.Personas.Cliente;
-import com.TpF.Store.Usuarios;
+    import com.TpF.Store.Usuarios;
 import com.TpF.Store.Ventas;
 import com.TpF.Videogame.Consola;
 import com.TpF.Videogame.Juego;
