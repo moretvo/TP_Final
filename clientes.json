@@ -26,5 +26,12 @@
     "nombre": "COca",
     "apellido": "Cola",
     "DNI": "45678123"
+  },
+  {
+    "usuario": "elboira",
+    "password": "147",
+    "nombre": "Juan",
+    "apellido": "Boirates",
+    "DNI": "12356789"
   }
 ]

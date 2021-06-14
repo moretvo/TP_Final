@@ -25,5 +25,50 @@
     "precio": 3000,
     "nombredeUsuario": "jamonyqueso",
     "nombreApellido": "Jamon Queso"
+  },
+  {
+    "jueguitos": [],
+    "ventas": [],
+    "nombreDelJuego": "Super Mario 64",
+    "consola": "NINTENDO_64",
+    "precio": 4200,
+    "nombredeUsuario": "jamonyqueso",
+    "nombreApellido": "Jamon Queso"
+  },
+  {
+    "jueguitos": [],
+    "ventas": [],
+    "nombreDelJuego": "Guitar Hero III: Legends Of Rock",
+    "consola": "PLAYSTATION_2",
+    "precio": 500,
+    "nombredeUsuario": "elboira",
+    "nombreApellido": "Juan Boirates"
+  },
+  {
+    "jueguitos": [],
+    "ventas": [],
+    "nombreDelJuego": "Kingdom Hearts III",
+    "consola": "PLAYSTATION_4",
+    "precio": 5900,
+    "nombredeUsuario": "moretvo",
+    "nombreApellido": "Rodrigo Moreno"
+  },
+  {
+    "jueguitos": [],
+    "ventas": [],
+    "nombreDelJuego": "Dragon Ball Z: Budokai 3",
+    "consola": "PLAYSTATION_2",
+    "precio": 3000,
+    "nombredeUsuario": "moretvo",
+    "nombreApellido": "Rodrigo Moreno"
+  },
+  {
+    "jueguitos": [],
+    "ventas": [],
+    "nombreDelJuego": "Sonic The Hedgehog 3",
+    "consola": "SEGA_GENESIS",
+    "precio": 1200,
+    "nombredeUsuario": "moretvo",
+    "nombreApellido": "Rodrigo Moreno"
   }
 ]

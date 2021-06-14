@@ -1,6 +1,6 @@
 package com.TpF.Personas;
 
-public class Persona {
+public abstract class Persona {
 
     protected String nombre;
     protected String apellido;
@@ -22,6 +22,8 @@ public class Persona {
     public String getApellido() {
         return apellido;
     }
+
+    public abstract void saludoInicial();
 
     @Override
     public String toString()

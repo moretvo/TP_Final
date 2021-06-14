@@ -19,14 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Staff{
+public class Staff implements ServiciosCliente{
     private List<Juego> juegos = new ArrayList<>();
     private String contraseñaAdmin;
     boolean primeraVez;
 
 
     public Staff(){
-        cargaListaDeVideojuegos();
+        juegos=cargaListaDeVideojuegos();
     };
 
 
@@ -78,13 +78,11 @@ public class Staff{
                 e.printStackTrace();
             }
         }
-
-
-
         return existeContraseña;
     }
 
-    public void accesoPrimeraVez(){
+    @Override
+    public void crearEntidad(){ ///Esto es para comprobar si es la primera vez que accede o no (basicamente, si existe contraseña en el archivo o no)
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Scanner input = new Scanner(System.in);
         System.out.println("\nComo es su primera vez accediendo al sistema, ingrese una contraseña maestra de administracion.");
@@ -115,7 +113,11 @@ public class Staff{
         }
     }
 
-   public boolean loginStaff(){
+    @Override
+    public void cargarEntidad() {
+    }
+
+    public boolean loginStaff(){
        Scanner input = new Scanner(System.in);
        System.out.println("Ingrese la contraseña maestra del STAFF: ");
        String aux = input.nextLine();
@@ -273,7 +275,7 @@ public class Staff{
         juegoFile.guardarArchivoSingular("juegos.json", juegos);
 
     }
-    public void cargaListaDeVideojuegos(){
+    public List<Juego> cargaListaDeVideojuegos(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader reader = null;
         try {
@@ -304,6 +306,7 @@ public class Staff{
                 e.printStackTrace();
             }
         }
+        return juegos;
     }
 
     public void verListaDeJuegos(){
@@ -373,42 +376,41 @@ public class Staff{
         }
     }
 
-    public void verHistorialDeVentas(){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        BufferedReader reader = null;
-        List<Ventas> ventas = new ArrayList<>();
-        int gananciasTotales=0;
+    ///En este caso es historial de ventas, pero bueno
+    public void historialDeVentas() {
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    BufferedReader reader = null;
+    List<Ventas> ventas = new ArrayList<>();
+    int gananciasTotales=0;
         try {
-            reader = new BufferedReader(new FileReader(new File ("ventas.json")));
-            ventas = gson.fromJson(reader,(new TypeToken<List<Ventas>>() {}.getType()));
+        reader = new BufferedReader(new FileReader(new File ("ventas.json")));
+        ventas = gson.fromJson(reader,(new TypeToken<List<Ventas>>() {}.getType()));
 
 
-            for (var aux : ventas){
-                gananciasTotales = gananciasTotales + aux.getPrecio();
-                System.out.println("*----------------------*");
-                System.out.println(aux.toString());
-            }
-            System.out.println("\nLas ganancias totales del local suman: " + gananciasTotales);
+        for (var aux : ventas){
+            gananciasTotales = gananciasTotales + aux.getPrecio();
+            System.out.println("*----------------------*");
+            System.out.println(aux.toString());
         }
-
-        catch (IOException e) {
-            e.printStackTrace();
-
-        }
-        catch (NullPointerException e) {
-            e.printStackTrace();
-
-        }finally {
-            try {
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
+        System.out.println("\nLas ganancias totales del local suman: " + gananciasTotales);
     }
 
+        catch (IOException e) {
+        e.printStackTrace();
+
+    }
+        catch (NullPointerException e) {
+        e.printStackTrace();
+
+    }finally {
+        try {
+            if (reader != null) {
+                reader.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    } }
 
 }
+

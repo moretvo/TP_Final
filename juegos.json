@@ -12,7 +12,7 @@
     "titulo": "Dragon Ball Z: Budokai 3",
     "desarrollador": "Bandai",
     "consola": "PLAYSTATION_2",
-    "fechaDeLanzamiento": "10-3-2004",
+    "fechaDeLanzamiento": "10-03-2004",
     "genero": "FIGHTING_GAME",
     "rating": "T",
     "precio": 3000
@@ -21,7 +21,7 @@
     "titulo": "Super Mario 64",
     "desarrollador": "Nintendo",
     "consola": "NINTENDO_64",
-    "fechaDeLanzamiento": "23-6-1996",
+    "fechaDeLanzamiento": "23-06-1996",
     "genero": "PLATAFORMAS",
     "rating": "E",
     "precio": 4200
@@ -30,9 +30,126 @@
     "titulo": "Sonic The Hedgehog 3",
     "desarrollador": "SEGA",
     "consola": "SEGA_GENESIS",
-    "fechaDeLanzamiento": "2-2-1994",
+    "fechaDeLanzamiento": "2-02-1994",
     "genero": "PLATAFORMAS",
     "rating": "E",
     "precio": 1200
+  },
+  {
+    "titulo": "Ultimate Mortal Kombat 3",
+    "desarrollador": "Midway",
+    "consola": "SEGA_GENESIS",
+    "fechaDeLanzamiento": "6-10-1995",
+    "genero": "FIGHTING_GAME",
+    "rating": "M",
+    "precio": 900
+  },
+  {
+    "titulo": "Kingdom Hearts III",
+    "desarrollador": "Square Enix",
+    "consola": "PLAYSTATION_4",
+    "fechaDeLanzamiento": "25-01-2019",
+    "genero": "RPG",
+    "rating": "T",
+    "precio": 5900
+  },
+  {
+    "titulo": "The Legend Of Zelda: Ocarina Of Time",
+    "desarrollador": "Nintendo",
+    "consola": "NINTENDO_64",
+    "fechaDeLanzamiento": "21-11-1998",
+    "genero": "AVENTURA",
+    "rating": "E",
+    "precio": 8200
+  },
+  {
+    "titulo": "Mario Kart 64",
+    "desarrollador": "Nintendo",
+    "consola": "NINTENDO_64",
+    "fechaDeLanzamiento": "14-12-1996",
+    "genero": "ACCION",
+    "rating": "E",
+    "precio": 2100
+  },
+  {
+    "titulo": "Mortal Kombat: Trilogy",
+    "desarrollador": "Midway",
+    "consola": "NINTENDO_64",
+    "fechaDeLanzamiento": "1-09-1996",
+    "genero": "FIGHTING_GAME",
+    "rating": "M",
+    "precio": 3400
+  },
+  {
+    "titulo": "Resident Evil 4",
+    "desarrollador": "Capcom",
+    "consola": "PLAYSTATION_2",
+    "fechaDeLanzamiento": "25-10-2005",
+    "genero": "ACCION",
+    "rating": "M",
+    "precio": 800
+  },
+  {
+    "titulo": "Silent Hill 2",
+    "desarrollador": "Konami",
+    "consola": "PLAYSTATION_2",
+    "fechaDeLanzamiento": "24-09-2001",
+    "genero": "TERROR",
+    "rating": "M",
+    "precio": 1200
+  },
+  {
+    "titulo": "Devil May Cry 3: Dante\u0027s Awakening",
+    "desarrollador": "Capcom",
+    "consola": "PLAYSTATION_2",
+    "fechaDeLanzamiento": "17-02-2005",
+    "genero": "ACCION",
+    "rating": "T",
+    "precio": 700
+  },
+  {
+    "titulo": "Guitar Hero III: Legends Of Rock",
+    "desarrollador": "RedOctane",
+    "consola": "PLAYSTATION_2",
+    "fechaDeLanzamiento": "28-10-2007",
+    "genero": "RITMO",
+    "rating": "T",
+    "precio": 500
+  },
+  {
+    "titulo": "Catherine: Full Body",
+    "desarrollador": "ATLUS",
+    "consola": "PLAYSTATION_4",
+    "fechaDeLanzamiento": "14-02-2019",
+    "genero": "PUZZLE",
+    "rating": "M",
+    "precio": 4500
+  },
+  {
+    "titulo": "Dark Souls: Remastered",
+    "desarrollador": "FromSoftware",
+    "consola": "PLAYSTATION_4",
+    "fechaDeLanzamiento": "24-05-2018",
+    "genero": "RPG",
+    "rating": "T",
+    "precio": 1200
+  },
+  {
+    "titulo": "Super Smash Bros. Ultimate",
+    "desarrollador": "Sora Ltd",
+    "consola": "NINTENDO_SWITCH",
+    "fechaDeLanzamiento": "7-12-2018",
+    "genero": "FIGHTING_GAME",
+    "rating": "T",
+    "precio": 3000
+  },
+  {
+    "titulo": "Doki Doki Literature Club Plus+",
+    "desarrollador": "Team Salvato",
+    "consola": "NINTENDO_SWITCH",
+    "fechaDeLanzamiento": "30-07-2021",
+    "genero": "TERROR",
+    "rating": "RP",
+    "precio": 9450
   }
 ]

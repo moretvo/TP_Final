@@ -2,9 +2,13 @@ package com.TpF.Store;
 
 import com.TpF.Personas.ServiciosCliente;
 import com.TpF.Personas.Cliente;
+import com.TpF.Personas.Staff;
+import com.TpF.Videogame.Consola;
+import com.TpF.Videogame.Juego;
 import com.TpF.misc.Archivos;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+import java.util.Random;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -13,13 +17,12 @@ import java.util.Scanner;
 
 public class Usuarios implements ServiciosCliente {
     private List<Cliente> clientes = new ArrayList<>();
-
     public Usuarios(){
-        cargarUsuarios();
+        cargarEntidad();
     };
 
     @Override
-    public void cargarUsuarios(){
+    public void cargarEntidad(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader reader = null;
         try {
@@ -46,7 +49,7 @@ public class Usuarios implements ServiciosCliente {
     }
 
     @Override
-    public void crearUsuario() {
+    public void crearEntidad() {
         Scanner input = new Scanner(System.in);
         System.out.println("Nombre de usuario: ");
         String usuario = input.nextLine();
@@ -91,7 +94,6 @@ public class Usuarios implements ServiciosCliente {
         }
     }
 
-    @Override
     public Cliente loginUsuarioCliente() {
         Scanner input = new Scanner(System.in);
         System.out.println("Ingrese su nombre de usuario: ");
@@ -143,23 +145,105 @@ public class Usuarios implements ServiciosCliente {
 }
 
 
-    @Override
-    public void compraDeJuegos() {
-
+    public void mostrarJuegosPorConsola(Consola consola) {
+        Staff admin = new Staff();
+        List<Juego> lista = new ArrayList<>();
+        List<Juego> listaDeConsola = new ArrayList<>();
+        lista = admin.cargaListaDeVideojuegos();
+        int i=0;
+        boolean flag=false;
+        while(i<lista.size())
+        {
+            if(lista.get(i).getConsola().equals(consola))
+            {
+                System.out.println(lista.get(i).toString());
+                flag=true;
+            }
+            i++;
+        }
+        if(flag==false){
+            System.out.println("No hay titulos disponibles para esa consola :(  (" + consola +")");
+        }
     }
 
-    @Override
-    public void mostrarCatalogoDeJuegos() {
 
+    public void buscarPorPrecio(int precio){
+        Staff admin = new Staff();
+        List<Juego> lista = new ArrayList<>();
+        List<Juego> listaOferta = new ArrayList<>();
+        lista = admin.cargaListaDeVideojuegos();
+        int i=0;
+        boolean flag=false;
+        while(i<lista.size())
+        {
+            if(lista.get(i).getPrecio() < precio)
+            {
+                System.out.println(lista.get(i).toString());
+                flag=true;
+            }
+            i++;
+        }
+        if(flag==false){
+            System.out.println("No hay titulos disponibles que sean mas baratos a ese valor (" +precio+")");
+        }
     }
 
-    @Override
-    public void historialDeCompras() {
 
+    public void historialDeCompras(Cliente cliente) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Ventas> ventas = new ArrayList<>();
+        BufferedReader reader = null;
+        int i=0;
+        try {
+            reader = new BufferedReader(new FileReader(new File ("ventas.json")));
+            ventas = gson.fromJson(reader,(new TypeToken<List<Ventas>>() {}.getType()));
+
+            while(i<ventas.size())
+            {
+                if(ventas.get(i).getNombredeUsuario().equals(cliente.getUsuario()))
+                {
+                    System.out.println(ventas.get(i).toString());
+                    System.out.println("*--------------------*");
+                }
+                i++;
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        catch (NullPointerException e) {
+            e.printStackTrace();
+
+        }finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    @Override
     public void recomendacionDeLaCasa() {
+            Staff admin = new Staff();
+            List<Juego> lista = new ArrayList<>();
+            List<Juego> listaOferta = new ArrayList<>();
+            lista = admin.cargaListaDeVideojuegos();
 
-    }
+            Random rnd = new Random();
+            int tamaño = lista.size()-1;
+
+            int valor = (int) ((Math.random() * tamaño) + 1);
+            System.out.println();
+
+            System.out.println("La casa recomienda el siguiente titulo: ");
+            System.out.println(lista.get(valor).toString());
+
+        }
+
+
+
 }
+

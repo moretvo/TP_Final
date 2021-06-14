@@ -45,6 +45,10 @@ public class Ventas {
 
     public int getPrecio() { return precio; }
 
+    public String getNombredeUsuario() {
+        return nombredeUsuario;
+    }
+
     public void ventaDeJuego(Cliente c){
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

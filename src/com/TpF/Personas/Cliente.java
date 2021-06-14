@@ -20,6 +20,11 @@ public class Cliente extends Persona{
     public void setPassword(String password) { this.password = password;}
 
     @Override
+    public void saludoInicial(){
+        System.out.println("\t Bienvenido, " + getNombre());
+    }
+
+    @Override
     public String toString()
     {
         return "\nNombre de usuario: " + usuario +
