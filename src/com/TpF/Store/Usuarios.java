@@ -2,11 +2,11 @@ package com.TpF.Store;
 
 import com.TpF.Personas.ServiciosCliente;
 import com.TpF.Personas.Cliente;
+import com.TpF.misc.Archivos;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,7 +22,6 @@ public class Usuarios implements ServiciosCliente {
     public void cargarUsuarios(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader reader = null;
-        int i=0;
         try {
             reader = new BufferedReader(new FileReader(new File ("clientes.json")));
             clientes = gson.fromJson(reader,(new TypeToken<List<Cliente>>() {}.getType()));
@@ -84,31 +83,8 @@ public class Usuarios implements ServiciosCliente {
                 cliente.setPassword(password);
                 clientes.add(cliente);
 
-                Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-                //Acá lo paso a un archivo
-                BufferedWriter fArchivo = null;
-
-                try {
-                    fArchivo = new BufferedWriter(new FileWriter(new File("clientes.json")));
-                    String json = gson.toJson(clientes, clientes.getClass());
-                    fArchivo.write(json);
-
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    if (fArchivo != null) {
-                        try {
-                            fArchivo.close();
-
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+                Archivos<Cliente> usuariosFile = new Archivos<>();
+                usuariosFile.guardarArchivoSingular("clientes.json", clientes);
                 break;
             case 2:
                 break;
@@ -116,7 +92,7 @@ public class Usuarios implements ServiciosCliente {
     }
 
     @Override
-    public int loginUsuarioCliente() {
+    public Cliente loginUsuarioCliente() {
         Scanner input = new Scanner(System.in);
         System.out.println("Ingrese su nombre de usuario: ");
         String usuario = input.nextLine();
@@ -128,30 +104,22 @@ public class Usuarios implements ServiciosCliente {
         int rtaUsuario=2; //Le pongo dos para que sea desigual a 0 basicamente y no sea null
         int rtapassword=2;
 
-        int accesoFinal=0; ///Retorna al final, si es 0, no pasa, si es 1, pasa.
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader reader = null;
         int i=0;
 
-        List<Cliente> clientesaux;
+        Cliente clienteIngresado = new Cliente();
+        List<Cliente> clientesaux = new ArrayList<>();
         try {
             reader = new BufferedReader(new FileReader(new File ("clientes.json")));
             clientesaux = gson.fromJson(reader,(new TypeToken<List<Cliente>>() {}.getType()));
 
             while(i < (clientesaux.size()))
             {
-                if(clientesaux.get(i).getUsuario().compareTo(usuario)==0) {
-                    rtaUsuario = 1;
-                }
-                if(clientesaux.get(i).getPassword().compareTo(password)==0)
-                {
-                    rtapassword = 1;
+                if(clientesaux.get(i).getUsuario().compareTo(usuario)==0 && clientesaux.get(i).getPassword().compareTo(password)==0) {
+                    clienteIngresado = clientesaux.get(i);
                 }
                 i++;
-            }
-            if(rtaUsuario==1 && rtapassword == 1)
-            {
-                accesoFinal = 1;
             }
         }
 
@@ -171,7 +139,7 @@ public class Usuarios implements ServiciosCliente {
             e.printStackTrace();
         }
     }
-        return accesoFinal;
+        return clienteIngresado;
 }
 
 

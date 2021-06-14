@@ -1,7 +1,9 @@
 package com.TpF;
+import com.TpF.Personas.Cliente;
 import com.TpF.Personas.Staff;
 import com.TpF.Store.CompraVideojuegos;
 import com.TpF.Store.Usuarios;
+import com.TpF.Store.Ventas;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -15,8 +17,10 @@ public class Menu {
 
     Usuarios usuario = new Usuarios();
     Staff admin = new Staff();
+    Cliente cliente = new Cliente();
     CompraVideojuegos compraJueguito = new CompraVideojuegos();
     boolean entradaAdmin;
+    Ventas venta = new Ventas();
 
 
 
@@ -76,10 +80,10 @@ public class Menu {
         int menu = input.nextInt();
         switch(menu){
             case 1:
-                acceso=usuario.loginUsuarioCliente();
-                if(acceso==1)
+                cliente=usuario.loginUsuarioCliente();
+                if(cliente != null)
                 {
-                    imprimirMenuClientesLogin();
+                    imprimirMenuClientesLogin(cliente);
                 }
                 else
                 {
@@ -97,11 +101,11 @@ public class Menu {
 
         }
     }
-    public void imprimirMenuClientesLogin(){
+    public void imprimirMenuClientesLogin(Cliente c){
         Scanner input = new Scanner(System.in);
         limpiarConsola();
         System.out.println("\n--------------------------------");
-        System.out.println("\t Bienvenido, USUARIO\t");
+        System.out.println("\t Bienvenido, " + c.getNombre());
         System.out.println("\n Presione el numero de acceso e ingrese a la opcion con Enter\n");
         System.out.println("1) Compra de juegos");
         System.out.println("2) Ver catalogo de juegos");
@@ -111,7 +115,8 @@ public class Menu {
         int menu = input.nextInt();
         switch(menu){
             case 1:
-                ///En compra que busque un juego por nombre y permita comprarlo
+                venta.ventaDeJuego(cliente);
+                imprimirMenuClientes();
                 break;
             case 2:
                 break;
@@ -146,6 +151,15 @@ public class Menu {
                 break;
             case 2:
                 admin.verListaDeJuegos();
+                imprimirMenuStaff();
+                break;
+            case 3:
+                admin.verListaDeUsuarios();
+                imprimirMenuStaff();
+                break;
+            case 4:
+                admin.verHistorialDeVentas();
+                imprimirMenuStaff();
                 break;
             case 0:
                 imprimirMenuPrincipal();

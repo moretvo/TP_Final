@@ -1,0 +1,18 @@
+[
+  {
+    "ventas": [],
+    "nombreDelJuego": "Super Mario 64",
+    "consola": "NINTENDO_64",
+    "precio": 4200,
+    "nombredeUsuario": "moretvo",
+    "nombreApellido": "Rodrigo Moreno"
+  },
+  {
+    "ventas": [],
+    "nombreDelJuego": "Tetris Effect",
+    "consola": "PLAYSTATION_4",
+    "precio": 1500,
+    "nombredeUsuario": "moretvo",
+    "nombreApellido": "Rodrigo Moreno"
+  }
+]

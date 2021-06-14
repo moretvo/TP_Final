@@ -17,11 +17,10 @@ public class Juego {
     private Genero genero;
     private ESRB rating;
     private int precio;
-    private int stock;
 
     public Juego(){};
 
-    public Juego(String titulo, String desarrollador, String fechaDeLanzamiento, Genero genero, ESRB rating, Consola consola, int precio, int stock)
+    public Juego(String titulo, String desarrollador, String fechaDeLanzamiento, Genero genero, ESRB rating, Consola consola, int precio)
     {
         this.titulo = titulo;
         this.desarrollador = desarrollador;
@@ -30,7 +29,6 @@ public class Juego {
         this.rating = rating;
         this.consola= consola;
         this.precio = precio;
-        this.stock = stock;
     }
 
 
@@ -72,10 +70,14 @@ public class Juego {
 
     public void setPrecio(int precio) { this.precio = precio; }
 
-    public void setStock(int stock) { this.stock = stock; }
+    public String getFechaDeLanzamiento() { return fechaDeLanzamiento; }
 
-    public String getFechaDeLanzamiento() {
-        return fechaDeLanzamiento;
+    public String getTitulo() {return titulo;}
+
+    public int getPrecio() { return precio; }
+
+    public Consola getConsola() {
+        return consola;
     }
 
     @Override
@@ -85,7 +87,6 @@ public class Juego {
                 "\nDesarrollado por " + desarrollador +
                 "\nConsola: " + consola +
                 "\nPrecio: $" + precio +
-                "\nStock disponible: " + stock +
                 "\nFecha de Lanzamiento: " + getFechaDeLanzamiento() +
                 "\nGenero: " + genero +
                 "\nRating: " + rating;

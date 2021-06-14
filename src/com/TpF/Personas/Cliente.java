@@ -22,8 +22,8 @@ public class Cliente extends Persona{
     @Override
     public String toString()
     {
-        return "Cliente: " +
-                "\nUsuario " + usuario + super.toString();
+        return "\nNombre de usuario: " + usuario +
+                "\nContraseña: " + password + super.toString();
 
     }
 

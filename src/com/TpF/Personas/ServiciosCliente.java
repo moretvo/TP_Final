@@ -4,7 +4,7 @@ public interface ServiciosCliente {
 
     void crearUsuario();
     void cargarUsuarios();
-    int loginUsuarioCliente();
+    Cliente loginUsuarioCliente();
     void compraDeJuegos();
     void mostrarCatalogoDeJuegos();
     void historialDeCompras();

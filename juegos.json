@@ -1,32 +1,38 @@
 [
   {
-    "titulo": "Marvel Spiderman",
-    "desarrollador": "Insomniac Games",
-    "consola": "PLAYSTATION_4",
-    "fechaDeLanzamiento": "7-9-2018",
-    "genero": "ACCION",
-    "rating": "T",
-    "precio": 20,
-    "stock": 30
-  },
-  {
     "titulo": "Tetris Effect",
     "desarrollador": "Resonair",
     "consola": "PLAYSTATION_4",
-    "fechaDeLanzamiento": "9-11-2018",
+    "fechaDeLanzamiento": "10-10-2018",
     "genero": "PUZZLE",
     "rating": "E",
-    "precio": 30,
-    "stock": 10
+    "precio": 1500
   },
   {
-    "titulo": "Catherine: Full Body",
-    "desarrollador": "Atlus",
-    "consola": "PLAYSTATION_4",
-    "fechaDeLanzamiento": "14-2-2019",
-    "genero": "PUZZLE",
-    "rating": "M",
-    "precio": 30,
-    "stock": 5
+    "titulo": "Dragon Ball Z: Budokai 3",
+    "desarrollador": "Bandai",
+    "consola": "PLAYSTATION_3",
+    "fechaDeLanzamiento": "10-3-2004",
+    "genero": "FIGHTING_GAME",
+    "rating": "T",
+    "precio": 3000
+  },
+  {
+    "titulo": "Super Mario 64",
+    "desarrollador": "Nintendo",
+    "consola": "NINTENDO_64",
+    "fechaDeLanzamiento": "23-6-1996",
+    "genero": "PLATAFORMAS",
+    "rating": "E",
+    "precio": 4200
+  },
+  {
+    "titulo": "Sonic The Hedgehog 3",
+    "desarrollador": "SEGA",
+    "consola": "SEGA_GENESIS",
+    "fechaDeLanzamiento": "2-2-1994",
+    "genero": "PLATAFORMAS",
+    "rating": "E",
+    "precio": 1200
   }
 ]

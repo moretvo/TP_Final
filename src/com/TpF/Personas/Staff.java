@@ -2,14 +2,18 @@ package com.TpF.Personas;
 
 import com.TpF.Personas.ServiciosCliente;
 import com.TpF.Personas.Cliente;
+import com.TpF.Store.Usuarios;
+import com.TpF.Store.Ventas;
 import com.TpF.Videogame.Consola;
 import com.TpF.Videogame.Juego;
+import com.TpF.misc.Archivos;
 import com.TpF.misc.ESRB;
 import com.TpF.misc.Genero;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -181,10 +185,6 @@ public class Staff{
         int numero = input.nextInt();
         juego.setPrecio(numero);
 
-        input.reset();
-        System.out.println("Stock disponible: ");
-        int valor = input.nextInt();
-        juego.setStock(valor);
 
         input.reset();
         System.out.println("¿Qué genero es?");
@@ -196,7 +196,7 @@ public class Staff{
         System.out.println("6) RPG");
         System.out.println("7) AVENTURA");
         System.out.println("8) TERROR");
-        valor = input.nextInt();
+        int valor = input.nextInt();
         switch(valor)
         {
             case 1:
@@ -268,34 +268,14 @@ public class Staff{
         juegos.add(juego);
 
         ///Bueno vamo a pasarlo a un archivo, mucho texto
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        BufferedWriter fArchivo = null;
-        try {
-            fArchivo = new BufferedWriter(new FileWriter(new File("juegos.json")));
-            String json = gson.toJson(juegos, juegos.getClass());
-            fArchivo.write(json);
 
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (fArchivo != null) {
-                try {
-                    fArchivo.close();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        Archivos<Juego> juegoFile = new Archivos<>();
+        juegoFile.guardarArchivoSingular("juegos.json", juegos);
 
     }
     public void cargaListaDeVideojuegos(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader reader = null;
-        int i=0;
         try {
             reader = new BufferedReader(new FileReader(new File("juegos.json")));
             juegos = gson.fromJson(reader,(new TypeToken<List<Juego>>() {}.getType()));
@@ -306,6 +286,13 @@ public class Staff{
 
         }
         catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        catch (IllegalStateException e) {
+            e.printStackTrace();
+
+        }
+        catch (JsonSyntaxException e) {
             e.printStackTrace();
 
         }finally {
@@ -322,7 +309,7 @@ public class Staff{
     public void verListaDeJuegos(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader reader = null;
-        List<Juego> juegoaux = new ArrayList();
+        List<Juego> juegoaux = new ArrayList<>();
         int i=0;
         try {
             reader = new BufferedReader(new FileReader(new File("juegos.json")));
@@ -330,6 +317,7 @@ public class Staff{
 
             for(var juegos : juegoaux)
             {
+                System.out.println("*------------------------*");
                 System.out.println(juegos.toString());
             }
 
@@ -350,6 +338,76 @@ public class Staff{
                 e.printStackTrace();
             }
         }
+    }
+
+    public void verListaDeUsuarios(){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        BufferedReader reader = null;
+        List<Cliente> clientes = new ArrayList<>();
+        int i=0;
+        try {
+            reader = new BufferedReader(new FileReader(new File ("clientes.json")));
+            clientes = gson.fromJson(reader,(new TypeToken<List<Cliente>>() {}.getType()));
+
+            for (var aux : clientes){
+                System.out.println("*----------------------*");
+                System.out.println(aux.toString());
+            }
+        }
+
+        catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        catch (NullPointerException e) {
+            e.printStackTrace();
+
+        }finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void verHistorialDeVentas(){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        BufferedReader reader = null;
+        List<Ventas> ventas = new ArrayList<>();
+        int gananciasTotales=0;
+        try {
+            reader = new BufferedReader(new FileReader(new File ("ventas.json")));
+            ventas = gson.fromJson(reader,(new TypeToken<List<Ventas>>() {}.getType()));
+
+
+            for (var aux : ventas){
+                gananciasTotales = gananciasTotales + aux.getPrecio();
+                System.out.println("*----------------------*");
+                System.out.println(aux.toString());
+            }
+            System.out.println("\nLas ganancias totales del local suman: " + gananciasTotales);
+        }
+
+        catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        catch (NullPointerException e) {
+            e.printStackTrace();
+
+        }finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 
