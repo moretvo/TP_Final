@@ -76,7 +76,7 @@ public class Menu {
         switch(menu){
             case 1:
                 cliente=usuario.loginUsuarioCliente();
-                if(cliente != null)
+                if(cliente.getUsuario()!=null)
                 {
                     imprimirMenuClientesLogin(cliente);
                 }
